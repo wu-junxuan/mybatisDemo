@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+	<setting name="logPrefix" value="mybatis"/>
+		<setting
+			name="logImpl"
+			value="STDOUT_LOGGING" />
+	</settings>
+	<typeAliases>
+		<package name="com.wujunxuan.pojo" />
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property
+					name="driver"
+					value="com.mysql.jdbc.Driver" />
+				<property
+					name="url"
+					value="jdbc:mysql://127.0.0.1:3306/testForInternal?characterEncoding=utf-8" />
+				<property
+					name="username"
+					value="test" />
+				<property
+					name="password"
+					value="test" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!-- 使用相对于类路径的资源引用 -->
+		<!-- <mapper resource="com/wujunxuan/mapper/UserMapper.xml" /> -->
+		<!-- 使用完全限定资源定位符（URL） -->
+		<!-- <mapper url="file:/Users/wujunxuan/eclipse-workspace/mybatisDemo(XML)/src/main/java/com/wujunxuan/mapper/UserMapper.xml" /> -->
+		<!-- 使用完全限定资源定位符（URL） -->
+		<mapper
+			url="file:../mybatisDemo(XML)/src/main/java/com/wujunxuan/mapper/UserMapper.xml" />
+	</mappers>
+</configuration>

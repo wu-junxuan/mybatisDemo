@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<!-- properties：配置的属性可以在整个配置文件'MybatisConfiguration.xml'中被用来替换需要动态配置的属性值，属性也可以被传递到 SqlSessionFactoryBuilder.build()方法中 -->
+	<!-- 如果属性在不只一个地方进行了配置，那么 MyBatis 将按照下面的顺序来加载： 
+		首先在====='xxx.properties'文件===============中的元素体内指定的属性首先被读取。 
+		然后在====='MybatisConfiguration.xml'文件=====中根据 properties 元素中的 resource 属性读取类路径下属性文件或根据 url 属性指定的路径读取属性文件，并覆盖已读取的同名属性。 
+		最后在====='Xxx.java'文件=====================中读取作为方法参数传递的属性，并覆盖已读取的同名属性。 -->
+	<!-- 因此，通过'xxx.java'传递的属性具有最高优先级， 'MybatisConfiguration.xml'的resource/url 属性中指定的配置文件次之， 最低优先级的是 'Xxx.properties'的properties 属性中指定的属性 -->
+	<properties
+		resource=""
+		url=""
+	>
+		<property
+			name=""
+			value="" />
+	</properties>
+	
+	
+	<!-- settings：改变 MyBatis 的运行时行为，主要是修改必要的设置，制定个性化配置 -->
+	<settings>
+		<setting
+			name=""
+			value="" />
+	</settings>
+	
+	<!-- typealiases：为 'aaa.bbb.cccc.Xxx.java' 设置一个短的名字,或者将一个包下的所有java都设置短名字，会使用 Bean 的首字母小写的非限定类名来作为它的别名。 -->
+	<!-- <typeAlias alias="Author" type="domain.blog.Author"/> -->
+	<!-- <package name="domain.blog"/> -->
+	<typeAliases>
+		<typeAlias
+			alias=""
+			type="" />
+		<package name="" />
+	</typeAliases>
+	
+	<!-- typehandler：用于数据库数据的类型和java的属性类型之间的转换——‘一个转换器’ -->
+	<!-- 首先创建一个java处理器，继承BaseTypeHandler或者实现TypeHandler接口
+		 然后选择JDBC某个类型和java某个属性类型对应
+		 最后在'MybatisConfiguration.xml'的typehandler中配置 
+		 可以通过扫描特定java或者包名得到-->
+	<!-- <typeHandler handler="org.mybatis.example.ExampleTypeHandler"/> -->
+	<!-- <package name="org.mybatis.example"/> -->
+	<typeHandlers>
+		<typeHandler
+			handler=""
+			javaType=""
+			jdbcType="" />
+		<package name="" />
+	</typeHandlers>
+	
+	
+	<!--  -->
+	<objectFactory type="">
+		<property
+			name=""
+			value="" />
+	</objectFactory>
+	
+	
+	<objectWrapperFactory type="" />
+	
+	
+	<reflectorFactory type="" />
+	
+	
+	<plugins>
+		<plugin interceptor="" />
+	</plugins>
+	
+	<!-- 将 SQL 映射应用于多种数据库之中 -->
+	<!-- 注意这里的关键点:
+	默认使用的环境 ID（比如：default="development"）。
+	每个 environment 元素定义的环境 ID（比如：id="development"）。
+	事务管理器的配置（比如：type="JDBC"）。
+	数据源的配置（比如：type="POOLED"）。
+	默认的环境和环境 ID 是自解释的，因此一目了然。 你可以对环境随意命名，但一定要保证默认的环境 ID 要匹配其中一个环境 ID。 -->
+	<environments default="">
+		<environment id="">
+			<transactionManager type="" />
+			<dataSource type="" />
+		</environment>
+	</environments>
+	
+	<!-- MyBatis 可以根据不同的数据库厂商执行不同的语句，这种多厂商的支持是基于映射语句中的 databaseId 属性。 
+	MyBatis 会加载不带 databaseId 属性和带有匹配当前数据库 databaseId 属性的所有语句。 
+	如果同时找到带有 databaseId 和不带 databaseId 的相同语句，则后者会被舍弃。 -->
+	<databaseIdProvider type="">
+		<property
+			name=""
+			value="" />
+	</databaseIdProvider>
+	
+	<!-- 映射文件的路径 -->
+	<!-- 使用相对于类路径的资源引用：<mapper resource="org/mybatis/builder/AuthorMapper.xml"/> -->
+	<!-- 使用完全限定资源定位符（URL）：<mapper url="file:///var/mappers/AuthorMapper.xml"/> -->
+	<!-- 使用映射器接口实现类的完全限定类名 <mapper class="org.mybatis.builder.AuthorMapper"/>-->
+	<!-- 将包内的映射器接口实现全部注册为映射器 ：<package name="org.mybatis.builder"/>-->
+	<mappers>
+		<mapper
+			class=""
+			resource=""
+			url="" />
+		<package name="" />
+	</mappers>
+</configuration>
